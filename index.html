@@ -9,7 +9,7 @@
   <!-- LOGO FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -29,7 +29,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
 </noscript>
 
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHKXWZTNN0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -66,7 +66,7 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
     text-align:center;
   }
 
-  /* LOGO */
+  /* LOGO REDONDO */
   .logo{
     margin:0 auto 28px;
     width:190px;
@@ -108,31 +108,30 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
   }
 
   .cta-btn{
-      width:100%;
-      padding:14px 20px;
-      border-radius:999px;
-      border:none;
-      font-size:16px;
-      font-weight:800;
-      text-transform:uppercase;
-      cursor:pointer;
-      background:#ffffff;
-      color:#050B2A;
-      letter-spacing:0.03em;
-      box-shadow:0 10px 26px rgba(0,0,0,0.6);
-      transition:all .18s ease;
-      margin-top:5px;
-    }
-    .cta-btn:hover{
-      transform:translateY(-2px) scale(1.02);
-      box-shadow:0 14px 30px rgba(0,0,0,0.8);
-      background:var(--accent-soft);
-      color:#ffffff;
-    }
+    width:100%;
+    padding:14px 20px;
+    border-radius:999px;
+    border:none;
+    font-size:16px;
+    font-weight:800;
+    text-transform:uppercase;
+    cursor:pointer;
+    background:#ffffff;
+    color:#050B2A;
+    letter-spacing:0.03em;
+    box-shadow:0 10px 26px rgba(0,0,0,0.6);
+    transition:all .18s ease;
+    margin-top:5px;
+  }
+  .cta-btn:hover{
+    transform:translateY(-2px) scale(1.02);
+    box-shadow:0 14px 30px rgba(0,0,0,0.8);
+    background:var(--accent-soft);
+    color:#ffffff;
+  }
 
   .footer{
     margin-top:18px;
-    font-family:'Montserrat',sans-serif;
   }
   .footer p{
     font-size:16px;
@@ -146,7 +145,6 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
   .footer strong{
     color:var(--accent-soft);
   }
-
 </style>
 </head>
 <body>
@@ -154,67 +152,50 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
 
     <!-- LOGO -->
     <div class="logo">
-      <img src="avatar.jpeg" alt="WinPlay">
+      <img src="avatar.jpg" alt="WinPlay">
     </div>
 
-    <h1>Envíanos un WhatsApp para crear tu cuenta</h1>
+    <h1>Únete a Telegram para crear tu cuenta</h1>
     <div class="verified">PLATAFORMA VERIFICADA</div>
 
-    <!-- SOLO BOTÓN — SIN FORM -->
-    <button class="cta-btn" id="goWpp">Crear usuario ahora</button>
+    <!-- BOTÓN → TELEGRAM -->
+    <button class="cta-btn" id="openTelegram">
+      Crear usuario ahora
+    </button>
 
     <div class="footer">
-      <p>Con tu primer depósito te bonificamos <strong> el %100</strong></p>
+      <p>Con tu primer depósito te bonificamos <strong>$3.000</strong></p>
       <h2>Mínimo de carga <strong>$2.000</strong></h2>
       <h2>CARGA Y RETIRA LAS 24 HS</h2>
     </div>
+
   </div>
 
 <script>
-(function(){
-  const numbers = [
-    "https://t.me/winplay1_bot",
+document.getElementById("openTelegram").addEventListener("click", function(){
 
-  ];
+    // TU LINK REAL DE TELEGRAM
+    const telegramURL = "https://t.me/winplay1_bot"; // ← cámbialo
 
-  function pickNumber(){
-    const last = localStorage.getItem("lastNumber");
-    let choice = numbers[Math.floor(Math.random()*numbers.length)];
+    const ref = "TG_" + Math.random().toString(36).substring(2,8).toUpperCase();
 
-    if(numbers.length > 1 && choice === last){
-      const others = numbers.filter(n => n !== last);
-      choice = others[Math.floor(Math.random()*others.length)];
-    }
-    localStorage.setItem("lastNumber", choice);
-    return choice;
-  }
-
-  document.getElementById("goWpp").addEventListener("click", function(){
-    const number = pickNumber();
-    const ref = "LD_" + Math.random().toString(36).substring(2,8).toUpperCase();
-
-    const msg = `Hola, quiero crear mi cuenta.\nCódigo promocional: ${ref}`;
-    const url = `https://wa.me/${number}?text=${encodeURIComponent(msg)}&ref=${encodeURIComponent(ref)}`;
-
-    // Pixel Lead
+    // Tracking Meta
     if (typeof fbq === "function") {
-      fbq("track", "Lead", { destino:number, ref });
+      fbq("track", "Lead", { ref });
     }
 
-    // GA4 Lead
+    // Tracking GA4
     if (typeof gtag === "function") {
       gtag("event", "generate_lead", {
         event_category: "engagement",
-        event_label: "WhatsApp",
+        event_label: "Telegram",
         value: 1,
-        ref: ref,
-        number: number
+        ref: ref
       });
     }
 
-    window.location.href = url;
-  });
-})();
+    window.location.href = telegramURL;
+});
 </script>
 
 </body>
