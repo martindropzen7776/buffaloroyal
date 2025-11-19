@@ -185,11 +185,11 @@ document.getElementById("btn-telegram").addEventListener("click", async () => {
   const fbc = fbclid ? `fb.1.${Date.now()}.${fbclid}` : null;
 
   try {
-    await fetch("https://bottelegramwp.onrender.com/api/telegram-session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ sessionId, fbp, fbc })
-    });
+await fetch("https://bottelegramwp.onrender.com/api/telegram-session", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ sessionId, fbp, fbc })
+});
   } catch (e) {
     console.log("Error guardando sesión en backend:", e);
   }
