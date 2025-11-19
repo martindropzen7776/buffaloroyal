@@ -6,10 +6,10 @@
   <title>WinPlay</title>
   <meta name="theme-color" content="#050B2A"/>
 
-  <!-- Fonts -->
+  <!-- LOGO FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 
-<!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -20,7 +20,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '2736341739855993');   // 🔥 Tu nuevo Pixel
+fbq('init', '2736341739855993');
 fbq('track', 'PageView');
 </script>
 
@@ -37,8 +37,9 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
   function gtag(){dataLayer.push(arguments);}
 
   gtag('js', new Date());
-  gtag('config', 'G-QHKXWZTNN0');  // 🔥 Tu nuevo GA4
+  gtag('config', 'G-QHKXWZTNN0');
 </script>
+
 
   <style>
     :root{
@@ -46,7 +47,7 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
       --card:#070F3A;
       --card-soft:#0B1548;
       --text:#ffffff;
-      --accent:#ff2b3b;  /* rojo tipo corazón */
+      --accent:#ff2b3b;
       --accent-soft:#ff5a6a;
     }
     *{ box-sizing:border-box; margin:0; padding:0; }
@@ -68,20 +69,36 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
       text-align:center;
     }
 
-    /* LOGO ESTILO WINPLAY */
+    /* LOGO REDONDO + BORDE DE COLORES */
     .logo{
       margin:0 auto 28px;
+      width:190px;
+      height:190px;
+      border-radius:50%;
+      padding:6px; 
+      background:conic-gradient(
+        from 200deg,
+        #ff2b3b,
+        #ffbc00,
+        #00e0ff,
+        #ff2b3b
+      );
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 12px 30px rgba(0,0,0,0.75);
     }
+
     .logo img{
-      display:block;
-      max-width:260px;
       width:100%;
-      margin:0 auto;
+      height:100%;
+      border-radius:50%;
+      object-fit:cover;
+      background:#050B2A;
     }
 
     h1{
       font-size:22px;
-      line-height:1.2;
       margin-bottom:6px;
     }
     .verified{
@@ -128,9 +145,6 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
       outline:none;
       transition:all .25s ease;
     }
-    .form-entry input::placeholder{
-      color:#8f8f8f;
-    }
     .form-entry input:focus{
       border-color:var(--accent-soft);
       box-shadow:0 0 0 3px rgba(255,90,106,0.25);
@@ -149,7 +163,7 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
       color:#050B2A;
       letter-spacing:0.03em;
       box-shadow:0 10px 26px rgba(0,0,0,0.6);
-      transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+      transition:all .18s ease;
     }
     .cta-btn:hover{
       transform:translateY(-2px) scale(1.02);
@@ -175,26 +189,19 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
       color:var(--accent-soft);
     }
 
-    @media (max-width:480px){
-      h1{ font-size:20px; }
-      .form-box{ padding:20px 16px; }
-      .logo img{ max-width:220px; }
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Logo WinPlay -->
-    <!-- Usa la imagen que tengas subida para el logo -->
+
+    <!-- LOGO -->
     <div class="logo">
-      <img src="avatar.jpeg" alt="WinPlay">
+      <img src="avatar.jpg" alt="WinPlay">
     </div>
 
-    <!-- Título y verificación -->
     <h1>Envíanos un WhatsApp para crear tu cuenta</h1>
-    <div class="verified">plataforma oficial winplay ✅</div>
+    <div class="verified">PLATAFORMA VERIFICADA</div>
 
-    <!-- Formulario -->
     <div class="form-box">
       <form id="wppform">
         <div class="form-entry">
@@ -205,68 +212,70 @@ src="https://www.facebook.com/tr?id=2736341739855993&ev=PageView&noscript=1"/>
       </form>
     </div>
 
-    <!-- Textos de abajo -->
     <div class="footer">
-      <p>Con tu primer depósito te bonificamos <strong>el 100%</strong></p>
+      <p>Con tu primer depósito te bonificamos <strong>$3.000</strong></p>
       <h2>Mínimo de carga <strong>$2.000</strong></h2>
-      <h2>CARGÁ Y RETIRÁ LAS 24 HS AL INSTANTE</h2>
+      <h2>CARGA Y RETIRA LAS 24 HS</h2>
     </div>
   </div>
 
-  <script>
-    (function(){
-      // 📱 Rotación de números
-      const numbers = [
-        "5491127114379",
-        "5491164200744",
-        "5491127113866",
-        "5491154144265",
-        "5491168820553",    // agrega más números si querés
-      ];
 
-      function pickNumber(){
-        const last = localStorage.getItem("lastNumber");
-        let choice = numbers[Math.floor(Math.random()*numbers.length)];
-        if(numbers.length > 1 && choice === last){
-          const others = numbers.filter(n => n !== last);
-          choice = others[Math.floor(Math.random()*others.length)];
-        }
-        localStorage.setItem("lastNumber", choice);
-        return choice;
-      }
+<script>
+(function(){
+  const numbers = [
+    "5491127114379",
+    "5491164200744",
+    "5491127113866",
+    "5491154144265",
+    "5491168820553"
+  ];
 
-      const form = document.getElementById("wppform");
-      form.addEventListener("submit", function(e){
-        e.preventDefault();
-        const user = document.getElementById("user").value.trim();
-        if(!user) return;
+  function pickNumber(){
+    const last = localStorage.getItem("lastNumber");
+    let choice = numbers[Math.floor(Math.random()*numbers.length)];
 
-        const number = pickNumber();
-        const ref = "LD_" + Math.random().toString(36).substring(2,8).toUpperCase();
+    if(numbers.length > 1 && choice === last){
+      const others = numbers.filter(n => n !== last);
+      choice = others[Math.floor(Math.random()*others.length)];
+    }
+    localStorage.setItem("lastNumber", choice);
+    return choice;
+  }
 
-        const msg = `Hola, quiero registrarme.\nMi usuario deseado es: ${user}\nMi código promocional es: ${ref}`;
-        const url = `https://wa.me/${number}?text=${encodeURIComponent(msg)}&ref=${encodeURIComponent(ref)}`;
+  const form = document.getElementById("wppform");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    const user = document.getElementById("user").value.trim();
+    if(!user) return;
 
-        // 🎯 Tracking del click
-        if (typeof fbq === "function") {
-          fbq("track", "Lead", { destino:number, user, ref });
-        }
-        
-        if (typeof gtag === "function") {
-          gtag("event", "generate_lead", {
-            event_category: "engagement",
-            event_label: "WhatsApp",
-            value: 1,
-            user: user,
-            ref: ref,
-            number: number
-          });
-        }
+    const number = pickNumber();
+    const ref = "LD_" + Math.random().toString(36).substring(2,8).toUpperCase();
 
-        // Redirigir a WhatsApp
-        window.location.href = url;
+    const msg = `Hola, quiero registrarme.\nMi usuario deseado es: ${user}\nMi código promocional es: ${ref}`;
+    const url = `https://wa.me/${number}?text=${encodeURIComponent(msg)}&ref=${encodeURIComponent(ref)}`;
+
+    // Pixel Lead
+    if (typeof fbq === "function") {
+      fbq("track", "Lead", { destino:number, user, ref });
+    }
+
+    // GA4 Lead
+    if (typeof gtag === "function") {
+      gtag("event", "generate_lead", {
+        event_category: "engagement",
+        event_label: "WhatsApp",
+        value: 1,
+        user: user,
+        ref: ref,
+        number: number
       });
-    })();
-  </script>
+    }
+
+    window.location.href = url;
+  });
+})();
+</script>
+
+
 </body>
 </html>
